@@ -9,7 +9,6 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/5c632ebf55.js" crossorigin="anonymous"></script>
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 
@@ -19,7 +18,7 @@
 
 <body class="box"onsubmit="return false">
     <div class="cards" id="form1">
-        <form  >
+        <form  method="post">
             <div>
                 <h2>Nº da O.S:</h2>
                 <input type="text" name="Nº O.S" id="nos" class="Caixa-Texto-N-OS" onkeypress='numeroOS();' required />
