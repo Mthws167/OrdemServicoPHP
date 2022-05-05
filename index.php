@@ -1,29 +1,3 @@
-<?php
-
-$erroNome='';
-    if($_SERVER['REQUEST_METHOD']=='POST'){
-        if(!empty($_POST['nome'])){
-            $erroNome="Preencha este campo!";
-        }else{
-            $nome=limpa($_POST['nome']);
-            if(!preg_match("/^[a-zA-Z-']*$/",$nome)){
-                $erroNome="Preencha este campo!";
-            }
-        }
-
-
-      
-    }
-
-    function limpar($valor){
-        $valor=trim($Valor);
-        $valor=stripslashes($valor);
-        $valor=htmlspecialchars($valor);
-        return $valor;
-    }
-
-?>
-
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -46,11 +20,20 @@ $erroNome='';
 
 <body class="box"onsubmit="return false">
     <div class="cards" id="form1">
-        <form  onsubmit="resultado()" method="post">
+        <form  onsubmit="resultado()"  method="post">
         <b>Ordem de Serviço</b>
             <div>
                 <h2>Nº da O.S:</h2>
-                <input type="text" name="nos" id="nos" class="Caixa-Texto-N-OS" onkeypress='numeroOS()' required="required"/>
+                <input type="text" name="nos" id="nos" class="Caixa-Texto-N-OS" required="required"/>
+                <script>var evento = evt || window.event;
+                    var chave = evento.keyCode || evento.which;
+                    chave = String.fromCharCode(chave);
+                    var regex = /^[0-9.,]+$/;
+                    var regex = /^[0-9.]+$/;
+                    if (!regex.test(chave)) {
+                        evento.returnValue = false;
+                        if (evento.preventDefault) evento.preventDefault();
+                    }</script>
             </div>
             <div>
                 <h2>Nome do Prestador de Serviço:</h2>
@@ -64,7 +47,16 @@ $erroNome='';
                 <div class="column">
                     <h2>Número:</h2>
                     <input type="text" name="numero" id="numero" class="Caixa-Texto-Numero-Casa"
-                        onkeypress='numeroCasa();'  required />
+                          required />
+                    <script>var evento = evt || window.event;
+                        var chave = evento.keyCode || evento.which;
+                        chave = String.fromCharCode(chave);
+                        var regex = /^[0-9.,]+$/;
+                        var regex = /^[0-9.]+$/;
+                        if (!regex.test(chave)) {
+                            evento.returnValue = false;
+                            if (evento.preventDefault) evento.preventDefault();
+                        }</script>
                 </div>
                 <div class="column">
                     <h2>Bairro:</h2>
@@ -127,6 +119,14 @@ $erroNome='';
                     <h2>CPF ou CNPJ:</h2>
                     <input type="text" name="CpfCnpj" id="CpfCnpj" class="Caixa-Texto-CPF-CNPJ1"
                         onkeypress="$(this).mask(CpfCnpjMask, cpfCnpjpOpcao)"  required />
+                    <script>var CpfCnpjMask = function (val) {
+                            return val.replace(/\D/g, '').length <= 11 ? '000.000.000-000' : '00.000.000/0000-00';
+                        },
+                            cpfCnpjpOpcao = {
+                                onKeyPress: function (val, e, field, options) {
+                                    field.mask(CpfCnpjMask.apply({}, arguments), options);
+                                }
+                            };</script>
                     <sub>Somente os números</sub>
                 </div>
             </div>
@@ -150,6 +150,7 @@ $erroNome='';
                     <h2>CPF ou CNPJ(opicional):</h2>
                     <input type="text" name="CpfCnpj2" id="CpfCnpj2" class="Caixa-Texto-CPF-CNPJ2"
                         onkeypress="$(this).mask(CpfCnpjMask, cpfCnpjpOpcao)" />
+                        
                     <sub>Somente os números</sub>
                 </div>
             </div>
@@ -171,8 +172,7 @@ $erroNome='';
             <div class="row">
                 <div class="column">
                     <h2>Data:</h2>
-                    <input id="data" class="Caixa-Data" type="date"
-                        ="" maxlength="10" name="data" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$"  required>
+                    <input id="data" class="Caixa-Data" type="date" maxlength="10" name="data" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$"  required>
                 </div>
 
                 <div class="column">
@@ -184,7 +184,7 @@ $erroNome='';
             </div>
             <br>
             <div>
-                <button type="submit" name="botao" class="Botao-GerarOS">
+                <button name="botao" class="Botao-GerarOS" onclick="ordemservico.p">
                     <i class="fa-solid fa-check" style=" color: rgb(19, 16, 48);font-size: x-large;">
                     </i>
                     <b class="b"> GerarO.S</b>
@@ -194,68 +194,8 @@ $erroNome='';
 
         </form>
     </div>
-
-    <div id="form2" style="padding-right: 10px;">
-        <div>
-            <p id="dataHora"></p>
-        </div>
-
-        <br><br>
-        <div style="border:solid 2px;">
-            <p id="nomeServidor"></p>
-            <p id="cpfcnpjs"></p>
-            <p id="cidadeEstadoCep"></p>
-            <p id="enderecoNumeroBairro"></p>
-            <p id="telefones"></p>
-        </div>
-        <br>
-        <br>
-        <div style="text-align: center;" id="nosOS"></div>
-        <div>
-            <p id="clientes"></p>
-            <p id="cpfcnpjs2"></p>
-            <p id="telefones2"></p>
-            <br>
-            <p id="obss"></p>
-        </div>
-        <div style="border:solid 2px;">
-            DESCRIÇÃO DO SERVIÇO/DEFEITO RELATADO:
-            <p id="descricaos"></p>
-        </div>
-        <br>
-        <div style="border: solid 2px;">
-            SERVIÇO EXECUTADO:
-            <p id="servicos"></p>
-        </div>
-        <br>
-        <br>
-        <br><br><br>
-        <div class="row" style="padding-left: 170px;">
-            <div class="column">
-                <hr>
-                <p>Assinatura do Cliente</p>
-            </div>
-            <div class="column" style="padding-left: 50px;">
-                <hr>
-                <p>Técnico Responsável</p>
-            </div>
-        </div>
-        <br><br><br><br>
-        <div style="padding-left: 265px;">
-
-            <button class="Botao-GerarOS" onclick="imprimir()">
-                <i class="fa-solid fa-file" style=" color: rgb(19, 16, 48);font-size: x-large;">
-                </i>
-                <b class="b"> Imprimir</b>
-            </button>
-            <button class="Botao-GerarOS" onclick="retorna()">
-                <i class="fa-solid fa-solid fa-arrow-rotate-left" style=" color: rgb(19, 16, 48);font-size: x-large;">
-                </i>
-                <b class="b"> Editar</b>
-            </button>
-        </div>
-        <br><br><br>
-    </div>
+</div>
+<div id="ordem"></div>
     <script src="script.js"></script>
 </body>
 
