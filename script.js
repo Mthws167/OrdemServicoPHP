@@ -27,7 +27,7 @@ function resultado() {
 
     document.getElementById('form2').style.display = "block";
 
-    document.getElementById("nosOS").innerHTML = "ORDEM Nº: " + nos1;
+    document.getElementById("nosOS").innerHTML = "ORDEM DE SERVIÇO Nº: " + nos1;
     document.getElementById("nomeServidor").innerHTML = nome1;
     document.getElementById("enderecoNumeroBairro").innerHTML = endereco1 + "," + numero1 + "," + bairro1;
     document.getElementById("cidadeEstadoCep").innerHTML = cidade1 + "," + estado1 + ", CEP:" + cep1;
@@ -87,23 +87,3 @@ function imprimir() {
     window.print();
 }
 
-
-let xhr = new XMLHttpRequest();
-  xhr.open("POST", "message.php", true);
-  xhr.onload = ()=>{
-    if(xhr.readyState == 4 && xhr.status == 200){
-      let response = xhr.response;
-      if(response.indexOf("required") != -1 || response.indexOf("valid") != -1 || response.indexOf("failed") != -1){
-        statusTxt.style.color = "red";
-      }else{
-        form.reset();
-        setTimeout(()=>{
-          statusTxt.style.display = "none";
-        }, 3000);
-      }
-      statusTxt.innerText = response;
-      form.classList.remove("disabled");
-    }
-  }
-  let formData = new FormData(form);
-  xhr.send(formData);
