@@ -27,7 +27,7 @@
             echo "<br>"."<br>";
             echo "<div style=border:solid 2px;>";
                 echo "<p>".$_POST["nome"] ."</p>";
-                echo "<p>"."CPF/CNPJ".$_POST["CpfCnpj"]. "</p>";
+                echo "<p>"."CPF/CNPJ: ".$_POST["CpfCnpj"]. "</p>";
                 echo "<p>".$_POST["cidade"].",".$_POST["estado"] .","."CEP:".$_POST["CEP"]."</p>";
                 echo "<p>".$_POST["endereco"] . ",". $_POST["numero"] . ",". $_POST["bairro"]."</p>";
                 echo "<p>".$_POST["telefone"] . "</p>";
@@ -35,12 +35,15 @@
             echo "<br>"."<br>";
             echo "<div style=text-align:center;>"."ORDEM DE SERVIÇO Nº: ".$_POST["nos"] ."</div>";
             echo "<div>";
-                echo "<p>".$_POST["cliente"] . "</p>";
-                echo "<p>".$_POST["CpfCnpj2"] . "</p>";
-                echo "<p>".$_POST["telefone2"] . "</p>";
+                echo "<p>"."CLIENTE: ".$_POST["cliente"] . "</p>";
+                echo "<p>"."CPF/CNPJ: ".$_POST["CpfCnpj2"] . "</p>";
+                echo "<p>"."TELEFONE: ".$_POST["telefone2"] . "</p>". "<br>";
+                echo "Obs.: ".$_POST["obs"] ;
             echo "</div>";
-            echo $_POST["obs"] . "<br>";
-            echo $_POST["descricao"] . "<br>";
+            echo "<div style=border:solid 2px;>";
+                echo "DESCRIÇÃO DO SERVIÇO/DEFEITO RELATADO:";
+                echo "<p>".$_POST["descricao"] . "</p>";
+            echo "</div>";
             echo $_POST["servico"] . "<br>";
         echo "</div>"; 
 
