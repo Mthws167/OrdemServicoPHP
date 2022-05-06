@@ -16,14 +16,17 @@
 
 
 </head>
-
+<?php 
+$dados = filter_input_array(INPUT_POST,FILTER_DEFAULT);
+?>
 <body class="box">
     <div class="cards" id="form1">
         <form action="ordemservico.php" onsubmit="resultado()" method="post">
             <b>Ordem de Serviço</b>
             <div>
                 <h2>Nº da O.S:</h2>
-                <input type="text" name="nos" id="nos" class="Caixa-Texto-N-OS" onkeypress='numeroOS()' required="required" />
+                <input type="text" name="nos" id="nos" class="Caixa-Texto-N-OS" onkeypress='numeroOS()' required />
+                
             </div>
             <div>
                 <h2>Nome do Prestador de Serviço:</h2>
@@ -132,12 +135,13 @@
             <div class="row">
                 <div class="column">
                     <h2>Data:</h2>
-                    <input id="data" class="Caixa-Data" type="date"="" maxlength="10" name="data" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" required>
+                    <input id="data" class="Caixa-Data" type="date" maxlength="10" name="data" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" required >
+                                  
                 </div>
-
                 <div class="column">
                     <h2>Hora:</h2>
                     <input id="hora" class="Caixa-Hora" type="time" maxlength="8" name="hora" pattern="[0-9]{2}:[0-9]{2} [0-9]{2}$" required>
+                    
                     <sub>Somente os números</sub>
                 </div>
             </div>
@@ -150,7 +154,7 @@
         </form>
     </div>
     <script src="script.js"></script>
+  
 </body>
-
 
 </html>
