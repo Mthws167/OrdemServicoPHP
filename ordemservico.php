@@ -1,21 +1,48 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-<body>
+<title>Ordem de Serviço</title>
+
+<link rel="stylesheet" href="style.css" />
+
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/5c632ebf55.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
+
+</head>
+
+
+<body class="box">
     <?php
-        echo $_POST["data"]." |  ". $_POST["hora"] . "<br><br>";
-        echo $_POST["nome"] . "<br>";
-        echo $_POST["CpfCnpj"]. "<br>";
-        echo $_POST["cidade"].",".$_POST["estado"] .",".$_POST["CEP"]."<br>";
-        echo $_POST["endereco"] . ",". $_POST["numero"] . ",". $_POST["bairro"]."<br>";
-        echo $_POST["telefone"] . "<br><br>";
-        echo $_POST["nos"] . "<br><br>";
-        echo $_POST["cliente"] . "<br>";
-        echo $_POST["CpfCnpj2"] . "<br>";
-        echo $_POST["telefone2"] . "<br><br>";
-        echo $_POST["obs"] . "<br>";
-        echo $_POST["descricao"] . "<br>";
-        echo $_POST["servico"] . "<br>";
-
+        echo "<div id=form2 style=padding-right 10px>";
+            echo "<div>";
+                echo "<p>".$_POST["data"]." |  ". $_POST["hora"] ."</p>";
+            echo "</div>";
+            echo "<br>"."<br>";
+            echo "<div style=border:solid 2px;>";
+                echo "<p>".$_POST["nome"] ."</p>";
+                echo "<p>"."CPF/CNPJ".$_POST["CpfCnpj"]. "</p>";
+                echo "<p>".$_POST["cidade"].",".$_POST["estado"] .","."CEP:".$_POST["CEP"]."</p>";
+                echo "<p>".$_POST["endereco"] . ",". $_POST["numero"] . ",". $_POST["bairro"]."</p>";
+                echo "<p>".$_POST["telefone"] . "</p>";
+            echo "</div>";
+            echo "<br>"."<br>";
+            echo "<div style=text-align:center;>"."ORDEM DE SERVIÇO Nº: ".$_POST["nos"] ."</div>";
+            echo "<div>";
+                echo "<p>".$_POST["cliente"] . "</p>";
+                echo "<p>".$_POST["CpfCnpj2"] . "</p>";
+                echo "<p>".$_POST["telefone2"] . "</p>";
+            echo "</div>";
+            echo $_POST["obs"] . "<br>";
+            echo $_POST["descricao"] . "<br>";
+            echo $_POST["servico"] . "<br>";
+        echo "</div>"; 
 
 
 
