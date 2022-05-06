@@ -20,7 +20,8 @@
 
 
 <body class="box">
-    <?php
+    <?php   
+
     echo "<div id='form2' style='padding-right: 10px'>";
     echo "<div>";
     echo "<p>" . $_POST["data"] . " |  " . $_POST["hora"] . "</p>";
