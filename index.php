@@ -19,7 +19,7 @@
 
 <body class="box">
     <div class="cards" id="form1">
-        <form action="validar.php" onsubmit="resultado()" method="post">
+        <form action="ordemservico.php" onsubmit="resultado()" method="post">
             <b>Ordem de Serviço</b>
             <div>
                 <h2>Nº da O.S:</h2>
@@ -149,8 +149,6 @@
 
         </form>
     </div>
-
-    
     <script src="script.js"></script>
 </body>
 
