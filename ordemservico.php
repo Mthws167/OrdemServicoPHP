@@ -19,8 +19,8 @@
 
 
 <body class="box">
-    <?php
-        echo "<div id=form2 style=padding-right 10px>";
+    <?php 
+        echo "<div id=form2 style='padding-right: 10px'>";
             echo "<div>";
                 echo "<p>".$_POST["data"]." |  ". $_POST["hora"] ."</p>";
             echo "</div>";
@@ -43,76 +43,29 @@
             echo "<div style=border:solid 2px;>";
                 echo "DESCRIÇÃO DO SERVIÇO/DEFEITO RELATADO:";
                 echo "<p>".$_POST["descricao"] . "</p>";
+            echo "</div>"."<br>";
+            echo "<div style=border:solid 2px;>";
+                echo "SERVIÇO EXECUTOADO:";
+                echo "<p>".$_POST["servico"] . "</p>";
             echo "</div>";
-            echo $_POST["servico"] . "<br>";
-        echo "</div>"; 
-
-
-
-
-
-    //   '"<div id=".form2." style=".padding-right ."10px".">"
-    //    ."<div>"
-    //        . "<p id=".dataHora." >"."</p>"
-    //     ."</div>"
-
-    //     ."<br>"."<br>"
-    //     ."<div style=".border.":".solid." 2px";">"
-    //        ." <p id=".nomeServidor.">"."</p>"
-    //         ."<p id=".cpfcnpjs.">"."</p>"
-    //         ."<p id=".cidadeEstadoCep.">"."</p>"
-    //         ."<p id=".enderecoNumeroBairro.">"."</p>"
-    //        ." <p id=".telefones.">"."</p>"
-    //     ."</div>"
-    //    ."<br>"
-    //     ."<br>"
-    //     ."<div style=".text-align.":". center.";"." id=".nosOS.">"."</div>"
-    //     ."<div>"
-    //         ."<p id=".clientes.">"."</p>"
-    //        ."<p id=".cpfcnpjs2.">"."</p>"
-    //        ." <p id=".telefones2.">"."</p>"
-    //        ."<br>"
-    //        ." <p id=".obss.">"."</p>"
-    //   . " </div>"
-    //    ." <div style=".border.":".solid ."2px".";".">"
-    //         ."DESCRIÇÃO DO SERVIÇO/DEFEITO RELATADO:"
-    //       ."<p id=".descricaos.">"."</p>"
-    //   ." </div>"
-    //     ."<br>"
-    //     ."<div style=".border.":". solid ."2px";">"
-    //         ."SERVIÇO EXECUTADO:"
-    //       . " <p id=".servicos.">"."</p>"
-    //    ." </div>"
-    //     ."<br>"
-    //     ."<br>"
-    //    ." <br>"."<br>"."<br>"
-    //   ." <div class=".row." style=".padding-left.":"."170px";">"
-    //        ." <div class=".column.">"
-    //             ."<hr>"
-    //            ." <p>Assinatura do Cliente"."</p>"
-    //        ." </div>"
-    //        ." <div class=".column." style=".padding-left.":"." 50px";">"
-    //            ." <hr>"
-    //            ." <p>Técnico Responsável"."</p>"
-    //        ." </div>"
-    //   . " </div>"
-    //    ." <br>"."<br>"."<br>"."<br>"
-    //   ."  <div style=".padding-left.": "."265px";">"
-    //        . "<button class=".Botao-GerarOS." onclick=".imprimir().">"
-    //            ." <i class=".fa-solid .fa-file." style=". "color".":"." .rgb(19, 16, 48).";"font-size".":"." x-large";">"
-    //             ."</i>"
-    //            ." <b class=".b.">"." Imprimir"."</b>"
-    //        . "</button>"
-    //       . " <button class=".Botao-GerarOS." onclick=".retorna().">"
-    //             ."<i class=".fa-solid .fa-solid .fa-arrow-rotate-left." style=" ."color".":". rgb(19, 16, 48).";"."font-size: x-large;">"
-    //             ."<"/".i>"
-    //            . "<b ."class=b">" ".Editar.""<"/".b>"
-    //        ."<"/".button>"
-    //    ."<"/".div>"
-    //   . " <br>"."<br>"."<br>"
-    // ."<"/".div>"'
+            echo "<br>"."<br>"."<br>"."<br>"."<br>";
+            echo "<div class='row' style='padding-left:170px;'>";
+                echo "<div class='column'>";
+                    echo "<hr>";
+                    echo " <p>"."Assinatura do Cliente"."</p>";
+                echo " </div>";
+                echo " <div class='column' style='padding-left: 50px;'>";
+                    echo " <hr>";
+                    echo " <p>"."Técnico Responsável"."</p>";
+                echo " </div>";
+            echo "</div>";
+            echo "<br>"."<br>"."<br>"."<br>";
+        echo "</div>";
+       
     ?>
+     
 </body>
+
 
 </html>
 
